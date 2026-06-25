@@ -8,7 +8,7 @@ import (
 )
 
 func init() {
-	togo.RegisterProviderFunc("mail-inbound", togo.PriorityService, func(k *togo.Kernel) error {
+	togo.RegisterProviderFunc("mail-inbound", togo.PriorityLate+10, func(k *togo.Kernel) error {
 		s := newService()
 		k.Set("mail-inbound", s)
 		if k.Router != nil {
